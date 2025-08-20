@@ -51,6 +51,7 @@ function wic_com as word (com as byte, parastart as word, paralenght as word, da
 		do												'Set Data on bus
 			sign = peek(parastart) 
 			if sign >= 65 and sign <= 90 then sign = sign + 32 'PETCII to ASCII
+			if sign >= 193 and sign <= 218 then sign = sign - 128
 			call setbyte(sign)
 			paralenght = paralenght - 1
 			parastart = parastart + 1
